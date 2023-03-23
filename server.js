@@ -7,9 +7,14 @@ const mongoose = require("mongoose");
 const app = express();
 
 //use cors
-app.use(cors());
+// app.use(cors());
 //use json
 app.use(express.json());
+
+app.corsOption = {
+  origin:"*",
+  optionsSuccessStatus:200
+}
 
 //connect to mongoose database //database will be created with the name netflix
 mongoose
