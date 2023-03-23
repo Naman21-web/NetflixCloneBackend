@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions ={
-  origin:'*', 
+  AccessControlAllowOrigin:'*', 
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200
 }
