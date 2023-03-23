@@ -11,10 +11,12 @@ const app = express();
 //use json
 app.use(express.json());
 
-app.corsOption = {
-  origin:"*",
-  optionsSuccessStatus:200
+const corsOptions ={
+  origin:'*', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200
 }
+app.use(cors(corsOptions));
 
 //connect to mongoose database //database will be created with the name netflix
 mongoose
