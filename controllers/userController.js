@@ -1,4 +1,4 @@
-const User = require("../models/UserModel.js");
+const User = require("../models/userModel.js");
 
 //For getting the liked movies
 module.exports.getLikedMovies = async (req, res) => {
