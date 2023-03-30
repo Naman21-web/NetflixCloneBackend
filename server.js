@@ -19,7 +19,7 @@ app.use(express.json());
 // app.use(cors(corsOptions));
 app.use(
   cors({
-    origin: "https://react-netflix-clone-9f4c9.web.app/,http://localhost:3000",
+    origin: "*",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
@@ -43,7 +43,7 @@ app.use("/api/user", userRoutes);
 
 app.get("/", (req, res) =>
   res.send(
-    `<h1>Site is Working. click <a href=${process.env.FRONTEND_URL}>here</a> to visit frontend.</h1>`
+    `<h1>Site is Working. click  to visit frontend.</h1>`
   )
 );
 
