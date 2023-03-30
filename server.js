@@ -11,12 +11,19 @@ const app = express();
 //use json
 app.use(express.json());
 
-const corsOptions ={
-  AccessControlAllowOrigin:'*', 
-  credentials:true,            //access-control-allow-credentials:true
-  optionSuccessStatus:200
-}
-app.use(cors(corsOptions));
+// const corsOptions ={
+//   AccessControlAllowOrigin:'*', 
+//   credentials:true,            //access-control-allow-credentials:true
+//   optionSuccessStatus:200
+// }
+// app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: "https://react-netflix-clone-9f4c9.web.app/,http://localhost:3000",
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 
 //connect to mongoose database //database will be created with the name netflix
 mongoose
@@ -33,6 +40,12 @@ mongoose
 
 //use "/api/user" this link to use the routes
 app.use("/api/user", userRoutes);
+
+app.get("/", (req, res) =>
+  res.send(
+    `<h1>Site is Working. click <a href=${process.env.FRONTEND_URL}>here</a> to visit frontend.</h1>`
+  )
+);
 
 //server on port 5000
 app.listen(5000, () => {
