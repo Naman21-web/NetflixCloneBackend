@@ -1,8 +1,8 @@
 const express = require("express");
-// const cors = require("cors");
+const cors = require("cors");
 const userRoutes = require("./routes/userRoutes.js");
 const mongoose = require("mongoose");
-var cors = require('cors');
+// var cors = require('cors');
 
 //use express
 const app = express();
@@ -29,7 +29,7 @@ app.use(express.json());
 
 //connect to mongoose database //database will be created with the name netflix
 mongoose
-  .connect("mongodb+srv://jainn098421:jainn098421@cluster0.gw7jcy5.mongodb.net/?retryWrites=true&w=majority", {
+  .connect("mongodb+srv://jainn098421:jainn098421@cluster0.gw7jcy5.mongodb.net/netflixclone?retryWrites=true", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })//if database connected successfully
